@@ -4,7 +4,7 @@ const User    = require('../models/User');
 const { protect } = require('../middleware/auth');
 
 // GET /api/users/:id — view any user's public profile
-router.get('/:id', protect, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {

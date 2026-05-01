@@ -14,16 +14,16 @@ const { addComment }  = require('../controllers/commentController')
 const { protect }     = require('../middleware/auth')
 
 // Feed & create
-router.get('/',              protect, getFeed)
-router.post('/',             protect, createPost)
+router.get('/', getFeed)
+router.post('/', createPost)
 
 // IMPORTANT: /user/:userId must come before /:id to avoid route conflict
 router.get('/user/:userId',  protect, getUserPosts)
 
 // Single post
-router.get('/:id',           protect, getPost)
-router.delete('/:id',        protect, deletePost)
-router.post('/:id/like',     protect, toggleLike)
+router.get('/:id',protect, getPost)
+router.delete('/:id',protect, deletePost)
+router.post('/:id/like',protect, toggleLike)
 
 // Comments on a post
 router.post('/:id/comments', protect, addComment)
