@@ -12,6 +12,6 @@ router.post('/register', registerRules, validate, register);
 router.post('/login', loginRules, validate, login);
 
 // GET  /api/auth/me  — requires valid JWT
-router.get('/me', getMe);
+router.get('/me', protect, getMe);
 
 module.exports = router;
